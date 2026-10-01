@@ -1,0 +1,54 @@
+DOM (viết tắt của Document Object Model) là một mô hình dạng cây đại diện cho cấu
+trúc của một trang web.
+- Khi trình duyệt tải trang HTML, nó phân tích (parse) nội dung HTML và tạo ra một
+mô hình dạng cây DOM.
+- Mỗi thẻ HTML trong tài liệu sẽ được chuyển thành một "đối tượng" (object) mà
+JavaScript có thể truy cập và thao tác.
+DOM trông như thế nào?
+Giả sử bạn có đoạn HTML sau:
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trang web của hoidanit</title>
+</head>
+<body>
+<h1>Chào bạn!</h1>
+<p>Đây là một đoạn văn bản.</p>
+</body>
+</html>
+
+DOM sẽ biểu diễn như một cây phân cấp:
+Document
+└── html
+├── head
+│ └── title
+└── body
+├── h1
+└── p
+
+//
+Truy cập phần tử HTML trong DOM
+Khi bạn muốn thay đổi nội dung, thêm màu sắc, ẩn/hiện một phần tử, hoặc xử lý khi
+người dùng tương tác (như click, nhập dữ liệu...), bạn cần lấy được phần tử HTML đó
+thông qua DOM.
+
+Một số cách phổ biến để truy cập phần tử
+✅ document.getElementById(id)
+Dùng để lấy phần tử có id cụ thể.
+Trả về duy nhất một phần tử (hoặc null nếu không tìm thấy).
+html:
+<p id="intro">Chào mừng!</p>
+js:
+const para = document.getElementById("intro");
+console.log(para); // in ra phần tử <p>
+
+✅ document.querySelector(selector)
+Dùng để tìm phần tử đầu tiên khớp với CSS selector (id, class, tag, v.v.).
+
+const firstNote = document.querySelector(".note");
+console.log(firstNote); // chỉ in ra phần tử đầu tiên có class="note"
+
+✅ document.querySelectorAll(selector)
+Dùng để lấy tất cả phần tử khớp với selector, trả về NodeList (giống mảng).
+const allNotes = document.querySelectorAll(".note");
+console.log(allNotes.length);

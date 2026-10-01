@@ -1,0 +1,6 @@
+const myId = document.getElementById("username")
+console.log(myId)
+const hello = document.querySelector(".Manhhandsome")
+console.log(hello)
+const allId = document.querySelectorAll(".Manhhandsome")
+console.log(allId)
