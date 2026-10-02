@@ -1,0 +1,4 @@
+innerText cho phép bạn lấy hoặc thay đổi phần nội dung dạng chữ mà người dùng thực
+sự nhìn thấy trên trang web (có tính đến CSS)
+innerHTML cho phép bạn lấy hoặc thay đổi nội dung HTML bên trong phần tử, bao gồm
+cả thẻ lồng bên trong
