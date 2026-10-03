@@ -1,0 +1,42 @@
+1. Lỗi (Error) là gì?
+Lỗi là những vấn đề xảy ra trong quá trình thực thi chương trình, khiến chương trình bị
+dừng hoặc chạy sai.
+Ví dụ:
+- Truy cập biến không tồn tại
+- Gọi API thất bại
+- Chia cho 0 (trong một số ngôn ngữ)
+- Cú pháp sai
+
+2.Sử dụng try/catch
+try {
+// code có thể gây lỗi
+} catch (error) {
+// xử lý lỗi ở đây
+} finally {
+// luôn chạy sau cùng (nếu cần)
+}
+//Callback Hell
+2.Callback Hell là gì?
+Callback Hell (địa ngục callback) là thuật ngữ mô tả việc lồng quá nhiều callback bên
+trong nhau, khiến code trở nên khó đọc, khó bảo trì..
+- Mã lồng nhau nhiều tầng (“pyramid of doom” – hình kim tự tháp)
+- Khó kiểm soát luồng dữ liệu
+- Khó bắt lỗi
+-gây mệt mỏi , khó khăn khi bảo trì 
+//
+1.Async/Await là gì?
+async/await là cú pháp hiện đại nhất trong JavaScript để xử lý bất đồng bộ, được giới
+thiệu từ ES2017 (ES8).
+Nó là một cách viết gọn gàng hơn cho Promise, giúp code đọc giống như code đồng bộ,
+dễ hiểu và dễ bảo trì hơn.
+async/await
+async function showSettings() {
+try {
+const user = await getUser();
+const profile = await getProfile(user);
+const settings = await getSettings(profile);
+console.log(settings);
+} catch (err) {
+console.error(err);
+}
+}

@@ -1,0 +1,40 @@
+1.Đồng Bộ (Synchronous) là gì?
+Trong mô hình đồng bộ, các đoạn mã sẽ thực hiện tuần tự.
+Mỗi dòng lệnh phải hoàn thành xong trước khi dòng tiếp theo được chạy.
+Ví dụ:
+console.log("1");
+console.log("2");
+console.log("3");
+2.Bất Đồng Bộ (Asynchronous) là gì?
+Trong mô hình bất đồng bộ, một số tác vụ có thể chạy nền (non-blocking), cho phép
+chương trình tiếp tục thực hiện các đoạn mã khác mà không phải chờ đợi hoàn tất.
+Đặc biệt quan trọng trong các thao tác như:
+- Chờ API phản hồi
+- Đọc/ghi file
+- Lấy dữ liệu từ server
+Chờ sự kiện người dùng
+Ví dụ:
+console.log("1");
+setTimeout(() => {
+console.log("2");
+}, 1000);
+console.log("3");
+//gọi APi với fetch
+fetch() là một hàm tích hợp sẵn trong JavaScript, dùng để gửi yêu cầu HTTP đến một
+URL (API).
+- Được giới thiệu từ ES6
+- Trả về Promise
+- Hỗ trợ đầy đủ các phương thức HTTP: GET, POST, PUT, DELETE,...
+Cú pháp:
+fetch(url)
+.then(response => response.json())
+.then(data => {
+console.log(data);
+})
+.catch(error => {
+console.error("Có lỗi xảy ra:", error);
+});
+url: Địa chỉ API
+response.json( ) : Chuyển dữ liệu từ JSON sang Object
+.then( ): Xử lý kết quả
+.catch( ): Bắt lỗi nếu có vấn đề
