@@ -5,7 +5,6 @@ const handleClickBtn = (message, event) => {
     console.log("Thẻ vừa click là:", event.target);
     alert("Bạn vừa nhấn nút!");
 };
-
 element.addEventListener("click", (e) => {
     handleClickBtn("Gửi dữ liệu", e);
 });

@@ -1,0 +1,1 @@
+Khái niệm cốt lõi: array.map(fn) chạy fn trên từng phần tử và trả về một mảng mới có cùng độ dài. Mảng gốc không bị thay đổi.

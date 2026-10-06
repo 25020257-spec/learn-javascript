@@ -26,35 +26,48 @@ tbody.addEventListener("click", async (event) => {
         const response = await fetch('http://localhost:8000/blogs/' + event.target.getAttribute('id'), {
             method: 'DELETE',
         })
+        alert("Xóa thành công")
         const row = event.target.closest('tr');
         row.remove();
+
     }
 })
 save.addEventListener("click", (async () => {
-    const rawResponse = await fetch('http://localhost:8000/blogs', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title: input1.value, author: input2.value, content: input3.value })
-    });
 
-    const newP = await rawResponse.json()
-    const Pid = newP.id
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
+    if (input1.value === "" || input2.value === "" || input3.value === "") { alert('Vui lòng điền thông tin đầy đủ') }
+    else {
+        try {
+            const rawResponse = await fetch('http://localhost:8000/blogs', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title: input1.value, author: input2.value, content: input3.value })
+            });
+
+            const newP = await rawResponse.json()
+            const Pid = newP.id
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
                 <td>${Pid}</td>
                 <td>${input1.value}</td>
                 <td>${input2.value}</td>
                 <td>${input3.value}</td>
                 <td><button class="DeleteBtn" id="${Pid}">Xóa</button></td>
             `;
+            alert('Thành công')
+            tbody.appendChild(newRow);
+            input1.value = "";
+            input2.value = "";
+            input3.value = "";
+        }
+        catch (err) {
+            console.log(err)
+            alert('Lỗi hệ thống', err)
+        }
+    }
 
-    tbody.appendChild(newRow);
-    input1.value = "";
-    input2.value = "";
-    input3.value = "";
 }))
 
 
