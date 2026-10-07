@@ -1,0 +1,3 @@
+-placeholder:là dòng chữ hiện mờ trong ô tìm kiếm
+-textContent:là để xử lí nếu gặp XSS ,tự động của DOM, nó sẽ nhận vào, các kí tự <,.. đều dc coi là kí tự thường và chuyển sang html , không bị script các câu lệnh độc hại
+-${} chỉ tồn tại trong dấu `` không tồn tại trong "" và ''
