@@ -1,0 +1,9 @@
+reduce: gom cả mảng thành MỘT giá trị
+
+map biến mảng thành mảng mới cùng độ dài. reduce thì gom cả mảng lại thành một giá trị duy nhất: một con số, một chuỗi, hoặc một object.
+
++cú pháp:
+mảng.reduce((tichLuy, phanTu) => {
+  // tính ra giá trị tích lũy mới và return nó
+}, giaTriKhoiDau);
+-trong object acc[t] khác acc.t 
