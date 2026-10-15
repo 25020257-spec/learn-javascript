@@ -1,0 +1,101 @@
+ .card img {
+     height: 300px;
+     width: 100%;
+     display: block;
+     margin: 0 auto;
+     object-fit: cover;
+ }
+
+ .products {
+
+
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 20px;
+ }
+
+
+
+ .card {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+
+     width: 100%;
+     max-width: 300px;
+
+     margin: 40px 0;
+     padding: 16px;
+     box-sizing: border-box;
+     border-radius: 10px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+ }
+
+
+
+ .badge {
+     position: absolute;
+     top: 50px;
+
+     display: inline-block;
+     background-color: #a18f8f;
+     color: rgb(83, 38, 38);
+
+     padding: 4px 10px;
+     font-size: 14px;
+     border-radius: 10px;
+ }
+
+
+
+
+ .price {
+
+     margin: 12px 0;
+
+ }
+
+ .old-price {
+     display: inline-block;
+
+     color: gray;
+     text-decoration: line-through;
+     margin-right: 8px;
+     font-size: 16px;
+ }
+
+ .new-price {
+     color: red;
+     font-weight: bold;
+     font-size: 24px;
+
+ }
+
+ .btn-box {
+     margin-top: auto
+ }
+
+
+
+ .btn {
+
+     border-radius: 10px;
+     padding: 10px;
+     border: 1px solid #0b0a0a;
+     background-color: orange;
+     color: aliceblue;
+     cursor: pointer;
+ }
+
+ .btn:hover {
+     background-color: rgb(130, 88, 25);
+
+ }
+
+ .total {
+     width: 200px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     border-radius: 10px;
+     background-color: yellow;
+ }
