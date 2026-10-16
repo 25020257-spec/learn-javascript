@@ -98,4 +98,62 @@
      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
      border-radius: 10px;
      background-color: yellow;
+     position: fixed;
+     bottom: 0;
+
+ }
+
+
+
+ nav img {
+     width: 100px;
+     height: 100px;
+     object-fit: cover;
+ }
+
+ body nav {
+
+     z-index: 100;
+     position: sticky;
+     top: 0;
+     color: white;
+     background-color: #0b0a0a;
+     align-items: center;
+     display: flex;
+     justify-content: flex-start;
+
+ }
+
+ h1,
+ h2 {
+     font-size: 1.5rem;
+ }
+
+ @media (max-width: 600px) {
+     html {
+         font-size: 12px;
+     }
+
+     .new-price {
+         font-size: 15px;
+     }
+
+     .old-price {
+         font-size: 12px;
+     }
+
+     .card {
+         width: 100%;
+         padding: 5px;
+     }
+
+     nav img {
+         width: 5rem;
+         height: 5rem;
+     }
+
+     .btn {
+         padding: 0px;
+     }
+
  }
