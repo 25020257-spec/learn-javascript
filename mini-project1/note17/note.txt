@@ -1,0 +1,21 @@
+array.push trả về tổng số sản phẩm chứ không trả về phần tử đấy nên lưu ý khi gán giá trị này.
+Kiến thức some,every,find:
+-some:trả về True/False nếu tồn tại 1 hc nhiều object thỏa mãn điều kiện.
+-every:trả về True/False nếu tất cả thỏa mãn điều kiện.
+-find:tìm 1 object thoả mãn điều kiện và trả về phàn tử đầu tiên tìm thấy
+event.target.value	giá trị đang chọn
+event.target.id	id của thẻ ("sort")
+event.target.className	class của thẻ
+event.target.textContent	chữ bên trong
+getAttribute("value1")
+Ba chuyện cần nhớ cho đỡ rối:
+
+.value luôn trả về một chuỗi, không bao giờ trả về hai thứ cùng lúc.
+.value chỉ đọc đúng thuộc tính tên value.
+Với <select>, event.target là thẻ <select>, nên .value là value của option đang chọn, không phải của tất cả option.
+querySelectorAll trả về danh sách các phần tử, mà danh sách thì không có addEventListener, Console sẽ báo Sorts.addEventListener is not a function. #sort chỉ có một phần tử nên dùng querySelector:
+	Nơi viết	Phân biệt hoa thường?
+Thuộc tính trong thẻ HTML (Value="...")	file HTML	Không
+Thuộc tính của đối tượng trong JS (event.target.value)	file JS	Có
+
+Trình duyệt đọc HTML của bạn, nhận ra Value là value, rồi lưu vào đối tượng JS dưới tên viết thường value. Nên HTML để hoa vẫn chạy, nhưng JS bắt buộc gõ value thường.

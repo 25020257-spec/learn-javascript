@@ -1,8 +1,8 @@
-const products = [{ name: "Tivi", price: 10000000, image: "image/tv.jpg", category: "dientu", discount: 0 }, { name: "Ô Tô", price: 10000000, image: "image/car.jpg", category: "xe", discount: 30 }, { name: "Robot", price: 10000000, image: "image/robot.jpg", category: 'dientu', discount: 2 }, { name: "Máy tính", price: 10000000, image: "image/computer.jpg", category: "dientu", discount: 99 }, { name: "Xe đạp", price: 10000000, image: "image/xe.jpg", category: "xe", discount: 0 }]
-
-const html = products.map((t) => {
-    return `<article class="card">
-            <img src=${t.image}
+const products = [{ name: "Tivi", price: 10000000, image: "image/tv.jpg", category: "dientu", discount: 0, rating: 1, stock: 4 }, { name: "Ô Tô", price: 9802243345, image: "image/car.jpg", category: "xe", discount: 30, stock: 2, rating: 5 }, { name: "Robot", price: 10000390, image: "image/robot.jpg", category: 'dientu', discount: 2, rating: 3, stock: 2 }, { name: "Máy tính", price: 10003954200, image: "image/computer.jpg", category: "dientu", discount: 99, stock: 2, rating: 5 }, { name: "Xe đạp", price: 100400, image: "image/xe.jpg", category: "xe", discount: 0, stock: 0, rating: 5 }, { name: "Bim bim", price: 5000, image: "image/bimbim.jpg", category: "Thức ăn", discount: 50, stock: 6, rating: 1 }, { name: "Kem", price: 10000, image: "image/kem.jpg", category: "Thức ăn", discount: 30, stock: 10, rating: 4 }, { name: "Bánh mì", price: 3000, image: "image/bmi.jpg", category: "Thức ăn", discount: 0, stock: 20, rating: 5 }, { name: "Xiên", price: 2000, image: "image/xien.jpg", category: "Thức ăn", discount: 90, stock: 6, rating: 3 }, { name: "Điện thoại", price: 9000000, image: "image/phone.jpg", category: "dientu", discount: 50, stock: 6, rating: 1 }]
+function renderProducts(list) {
+    const html = list.map((t) => {
+        return `<article class="card">
+            <img src="${t.image}"
                 alt="${t.name}">
                 ${t.discount ? `<span class="badge">Giảm ${t.discount.toLocaleString("vi-VN")}%</span>` : ""}
 
@@ -16,21 +16,42 @@ const html = products.map((t) => {
             </div>
 
         </article>`}).join("");
-document.querySelector(".products").insertAdjacentHTML("beforeend", html);
-const res = products.reduce((sum, t) => { return sum + t.price * (1 - t.discount / 100) }, 0);
-document.querySelector(".products").insertAdjacentHTML("afterend", `<div class="total"> Tổng tiền: ${Math.round(res).toLocaleString("vi-VN")}đ</div>`);
-console.log(res);
-const res1 = products.reduce((sum, t) => {
-    sum[t.category] = (sum[t.category] || 0) + 1;
-    return sum;
-}, {})
-console.log(res1)
-const res2 = products.reduce((sum, t) => {
-    if (!sum[t.category]) { sum[t.category] = []; }
-    sum[t.category].push(t.name);
-    return sum
+    document.querySelector(".products").innerHTML = html;
+}
+renderProducts(products)
+const buttons = document.querySelectorAll(".Btn")
+buttons.forEach((button) =>
+    button.addEventListener("click", () => {
+        const filterType = button.dataset.filter;
+        if (filterType === "all") {
+            renderProducts(products)
 
-}, {})
-console.log(res2)
+        }
+        else if (filterType === "sale") {
+            renderProducts(products.filter((t) => { return t.discount > 0 }))
+        }
+        else {
+            renderProducts(products.filter((t) => { return t.stock > 0 }))
+        }
+    }
+    ))
+const Sorts = document.querySelector("#sort")
+Sorts.addEventListener("change", (event) => {
+    if (event.target.value === "default") {
+        renderProducts(products)
+    }
+    else if (event.target.value === "price-asc") {
+        renderProducts([...products].sort((a, b) => { return (a.price * (1 - a.discount / 100) - b.price * (1 - b.discount / 100)) }))
+    }
+    else if (event.target.value === "price-desc") {
+        renderProducts([...products].sort((a, b) => { return (a.price * (1 - a.discount / 100) - b.price * (1 - b.discount / 100) < 0) }))
+    }
+    else { renderProducts([...products].sort((a, b) => { return -a.rating + b.rating })) }
+})
+
+
+
+
+
 
 
